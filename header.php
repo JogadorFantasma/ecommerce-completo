@@ -47,7 +47,7 @@
 	          <li class="nav-item"><a href="<?php echo SITE_URL;?>/sobre" class="nav-link">Sobre</a></li>
 	          <li class="nav-item"><a href="<?php echo SITE_URL;?>/blog" class="nav-link">Blog</a></li>
 	          <li class="nav-item"><a href="<?php echo SITE_URL;?>/contato" class="nav-link">Contato</a></li>
-	          <li class="nav-item cta cta-colored"><a data-toggle="modal" data-target="#cartModal" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
+	          <li class="nav-item cta cta-colored"><a data-toggle="modal" data-target="#cartModal" class="nav-link"><span class="icon-shopping_cart"></span>[<?php if(isset($_SESSION['shopping_cart']) && !empty($_SESSION['shopping_cart'])){ echo count($_SESSION['shopping_cart']);}else{ echo "0";}?>]</a></li>
 
 	        </ul>
 	      </div>
@@ -60,48 +60,55 @@
     <div class="modal-content">
       <div class="modal-header border-bottom-0">
         <h5 class="modal-title" id="exampleModalLabel">
-          Your Shopping Cart
+          Detalhe Carrinho
         </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <table class="table table-image">
-          <thead>
-            <tr>
-              <th scope="col"></th>
-              <th scope="col">Produto</th>
-              <th scope="col">Preço</th>
-              <th scope="col">Qtd</th>
-              <th scope="col">Total</th>
-              <th scope="col">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="w-25">
-                <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/vans.png" class="img-fluid img-thumbnail" alt="Sheep">
-              </td>
-              <td>Vans Sk8-Hi MTE Shoes</td>
-              <td>89$</td>
-              <td class="qty"><input type="text" class="form-control" id="input1" value="2"></td>
-              <td>178$</td>
-              <td>
-                <a href="#" class="btn btn-danger btn-sm">
-                  <i class="fa fa-times"></i>
-                </a>
-              </td>
-            </tr>
-          </tbody>
-        </table> 
+		  <?php if(!empty($_SESSION['shopping_cart'])){?>
+		  <div class="container-fluid">
+			<div class="row">
+			<div class="col-md-6"><h6>Produto</h6></div>
+			<div class="col-md-2"><h6>Preço</h6></div>
+			<div class="col-md-1"><h6>Qtd</h6></div>
+			<div class="col-md-2"><h6>Total</h6></div>
+			<div class="col-md-1"><h6>Ação</h6></div>
+			</div>
+			<hr>
+			<?php 
+			  $total = 0;
+			  foreach($_SESSION['shopping_cart'] as $key => $produto_modal){
+			  ?>
+			<div class="row">
+			<div class="col-md-6"><?php echo $produto_modal['nome_produto'];?></div>
+			<div class="col-md-2">R$ <?php echo number_format($produto_modal['valor_produto'],2,',','.');?></div>
+			<div class="col-md-1"><?php echo $produto_modal['quantidade_produto'];?></div>
+			<div class="col-md-2">R$ <?php echo number_format($produto_modal['quantidade_produto'] * $produto_modal['valor_produto'],2,',','.');?></div>
+			<div class="col-md-1"><a href="?action=delete&id=<?php echo $produto_modal['id'];?>" class="btn btn-danger ">
+                  <i class="icon icon-times"></i>
+                </a></div>
+			</div>
+			<?php $total = $total + ($produto_modal['quantidade_produto'] * $produto_modal['valor_produto']);?>
+			<?php }?>
+			<hr>
+		  </div>
         <div class="d-flex justify-content-end">
-          <h5>Total: <span class="price text-success">89$</span></h5>
+			
+          <h5>Total: <span class="price text-success">R$ <?php echo number_format($total,2,',','.')?></span></h5>
         </div>
+		<?php }else{?>
+		<h3>Nenhum produto no carrinho!</h3>
+		<?php }?>
       </div>
       <div class="modal-footer border-top-0 d-flex justify-content-between">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-success">Checkout</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+		<?php if(!empty($_SESSION['shopping_cart'])){
+			if(count($_SESSION['shopping_cart']) > 0){
+			?>
+        <button type="button" class="btn btn-success">Carrinho</button>
+		<?php } }?>
       </div>
     </div>
   </div>

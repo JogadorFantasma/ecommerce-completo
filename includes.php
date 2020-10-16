@@ -61,11 +61,17 @@ if(filter_input(INPUT_POST, 'addCarrinho')){
             'quantidade_produto' => filter_input(INPUT_POST, 'quantidade_produto')
         );
     }
-    pre_r($_SESSION);
-
-   
-
+    //pre_r($_SESSION);
 }
+if(filter_input(INPUT_GET, 'action') == 'delete'){
+    foreach($_SESSION['shopping_cart'] as $key => $products){
+        if($products['id'] == filter_input(INPUT_GET, 'id')){
+            unset($_SESSION['shopping_cart'][$key]);
+        }
+    }
+    $_SESSION['shopping_cart'] = array_values($_SESSION['shopping_cart']);
+}
+
  function pre_r($array){
         echo "<pre>";
         print_r($array);
