@@ -86,6 +86,14 @@ $editaConfig = $infoSistema->rsDados(1);
                                                     <input type="text" class="form-control" name="telefone2" value="<?php if(isset($editaConfig->telefone2) && !empty($editaConfig->telefone2)){ echo $editaConfig->telefone2;}?>" >
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                <label class="mr-sm-2" for="">CEP</label>
+                                                    <input type="text" class="form-control" name="cep_loja" value="<?php if(isset($editaConfig->cep_loja) && !empty($editaConfig->cep_loja)){ echo $editaConfig->cep_loja;}?>" >
+                                                </div>
+                                            </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                 <label class="mr-sm-2" for="">Endereço</label>

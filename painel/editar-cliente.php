@@ -91,7 +91,55 @@ $editaCliente = $clientes->rsDados($id);
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                 <label class="mr-sm-2" for="">Senha</label>
-                                                    <input type="text" class="form-control" name="senha" <?php if(isset($editaCliente->senha) && !empty($editaCliente->senha)){ echo $editaCliente->senha;}?>>
+                                                    <input type="text" class="form-control" name="senha" value="<?php if(isset($editaCliente->senha) && !empty($editaCliente->senha)){ echo $editaCliente->senha;}?>">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                <label class="mr-sm-2" for="">CEP</label>
+                                                    <input type="text" class="form-control" name="cep" value="<?php if(isset($editaCliente->cep) && !empty($editaCliente->cep)){ echo $editaCliente->cep;}?>">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                               <label class="mr-sm-2" for="">Endereço</label>
+                                                    <input type="text" class="form-control" name="endereco" value="<?php if(isset($editaCliente->endereco) && !empty($editaCliente->endereco)){ echo $editaCliente->endereco;}?>">
+                                            </div>
+                                            <div class="col-md-1">
+                                                <div class="form-group">
+                                                <label class="mr-sm-2" for="">Número</label>
+                                                    <input type="text" class="form-control" name="numero" value="<?php if(isset($editaCliente->numero) && !empty($editaCliente->numero)){ echo $editaCliente->numero;}?>">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                <label class="mr-sm-2" for="">Estado</label>
+                                                    <?php echo $estados->selectEstados('id_estado', '', $editaCliente->id_estado, '', 'S');?>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                               <label class="mr-sm-2" for="">Cidade</label>
+                                                    <div id="janela_Cidades">
+                                                    <?php 
+                                                    $_GET['id_estado'] = $editaCliente->id_estado;
+                                                    $_GET['id_cidade'] = $editaCliente->id_cidade;
+                                                    include "cidades.php"; ?>
+                                                        
+                                                    </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                <label class="mr-sm-2" for="">Bairro</label>
+                                                    <input type="text" class="form-control" name="bairro" value="<?php if(isset($editaCliente->bairro) && !empty($editaCliente->bairro)){ echo $editaCliente->bairro;}?>">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                <label class="mr-sm-2" for="">Complemento</label>
+                                                    <input type="text" class="form-control" name="complemento" value="<?php if(isset($editaCliente->complemento) && !empty($editaCliente->complemento)){ echo $editaCliente->complemento;}?>">
                                                 </div>
                                             </div>
                                         </div>
@@ -99,7 +147,7 @@ $editaCliente = $clientes->rsDados($id);
                                     <div class="form-actions">
                                         <div class="text-right">
                                             <button type="submit" class="btn btn-info">Salvar</button>
-                                            <button type="reset" class="btn btn-dark">Resetar</button>
+                                            <!-- <button type="reset" class="btn btn-dark">Resetar</button> -->
                                         </div>
                                     </div>
                                     <input type="hidden" name="acao" value="editaCliente">
@@ -122,5 +170,6 @@ $editaCliente = $clientes->rsDados($id);
     <script src="assets/extra-libs/sparkline/sparkline.js"></script>
     <script src="dist/js/sidebarmenu.js"></script>
     <script src="dist/js/custom.min.js"></script>
+    <script src="dist/js/script_loads.js"></script>
 </body>
 </html>

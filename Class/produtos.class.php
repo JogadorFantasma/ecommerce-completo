@@ -115,6 +115,10 @@ if(empty($ProdutosInstanciada)) {
 				$quantidade_estoque = filter_input(INPUT_POST, 'quantidade_estoque', FILTER_SANITIZE_STRING);
 				$avise_estoque = filter_input(INPUT_POST, 'avise_estoque', FILTER_SANITIZE_STRING);
 				$destaque = filter_input(INPUT_POST, 'destaque', FILTER_SANITIZE_STRING);
+				$peso = filter_input(INPUT_POST, 'peso', FILTER_SANITIZE_STRING);
+				$altura = filter_input(INPUT_POST, 'altura', FILTER_SANITIZE_STRING);
+				$largura = filter_input(INPUT_POST, 'largura', FILTER_SANITIZE_STRING);
+				$comprimento = filter_input(INPUT_POST, 'comprimento', FILTER_SANITIZE_STRING);
 					try{
 
 						if(file_exists('Connection/conexao.php')) {
@@ -123,7 +127,7 @@ if(empty($ProdutosInstanciada)) {
 							$pastaArquivos = '../img';
 						}
 						
-						$sql = "INSERT INTO tbl_produto (imagem, nome, descricao, preco_de, preco_por, ativo, id_categoria, id_subcategoria, url_amigavel, meta_title, meta_keywords, meta_description, quantidade_estoque, avise_estoque, destaque) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";   
+						$sql = "INSERT INTO tbl_produto (imagem, nome, descricao, preco_de, preco_por, ativo, id_categoria, id_subcategoria, url_amigavel, meta_title, meta_keywords, meta_description, quantidade_estoque, avise_estoque, destaque, peso, altura, largura, comprimento) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";   
 						$stm = $this->pdo->prepare($sql);   
 						$stm->bindValue(1, upload('imagem', $pastaArquivos, 'N'));   
 						$stm->bindValue(2, $nome);   
@@ -140,6 +144,10 @@ if(empty($ProdutosInstanciada)) {
 						$stm->bindValue(13, $quantidade_estoque);
 						$stm->bindValue(14, $avise_estoque);
 						$stm->bindValue(15, $destaque);
+						$stm->bindValue(16, $peso);
+						$stm->bindValue(17, $altura);
+						$stm->bindValue(18, $largura);
+						$stm->bindValue(19, $comprimento);
 						$stm->execute(); 
 						$idBanner = $this->pdo->lastInsertId();
 						
@@ -177,6 +185,10 @@ if(empty($ProdutosInstanciada)) {
 				$quantidade_estoque = filter_input(INPUT_POST, 'quantidade_estoque', FILTER_SANITIZE_STRING);
 				$avise_estoque = filter_input(INPUT_POST, 'avise_estoque', FILTER_SANITIZE_STRING);
 				$destaque = filter_input(INPUT_POST, 'destaque', FILTER_SANITIZE_STRING);
+				$peso = filter_input(INPUT_POST, 'peso', FILTER_SANITIZE_STRING);
+				$altura = filter_input(INPUT_POST, 'altura', FILTER_SANITIZE_STRING);
+				$largura = filter_input(INPUT_POST, 'largura', FILTER_SANITIZE_STRING);
+				$comprimento = filter_input(INPUT_POST, 'comprimento', FILTER_SANITIZE_STRING);
 				
 				try { 
 
@@ -186,7 +198,7 @@ if(empty($ProdutosInstanciada)) {
 							$pastaArquivos = '../img';
 						}
 				
-					$sql = "UPDATE tbl_produto SET imagem=?, nome=?, descricao=?, preco_de=?, preco_por=?, ativo=?, id_categoria=?, id_subcategoria=?, url_amigavel=?, meta_title=?, meta_keywords=?, meta_description=?, quantidade_estoque=?, avise_estoque=?, destaque=? WHERE id=?";   
+					$sql = "UPDATE tbl_produto SET imagem=?, nome=?, descricao=?, preco_de=?, preco_por=?, ativo=?, id_categoria=?, id_subcategoria=?, url_amigavel=?, meta_title=?, meta_keywords=?, meta_description=?, quantidade_estoque=?, avise_estoque=?, destaque=?, peso=?, altura=?, largura=?, comprimento=? WHERE id=?";   
 					$stm = $this->pdo->prepare($sql);   
 					$stm->bindValue(1, upload('imagem', $pastaArquivos, 'N'));   
 					$stm->bindValue(2, $nome);   
@@ -202,8 +214,12 @@ if(empty($ProdutosInstanciada)) {
 					$stm->bindValue(12, $meta_description);
 					$stm->bindValue(13, $quantidade_estoque);
 					$stm->bindValue(14, $avise_estoque);
-					$stm->bindValue(15, $destaque); 
-					$stm->bindValue(16, $id);   
+					$stm->bindValue(15, $destaque);
+					$stm->bindValue(16, $peso);
+					$stm->bindValue(17, $altura);
+					$stm->bindValue(18, $largura);
+					$stm->bindValue(19, $comprimento); 
+					$stm->bindValue(20, $id);   
 					$stm->execute(); 
 				} catch(PDOException $erro){
 					echo $erro->getMessage(); 

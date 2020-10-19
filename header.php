@@ -47,6 +47,13 @@
 	          <li class="nav-item"><a href="<?php echo SITE_URL;?>/sobre" class="nav-link">Sobre</a></li>
 	          <li class="nav-item"><a href="<?php echo SITE_URL;?>/blog" class="nav-link">Blog</a></li>
 	          <li class="nav-item"><a href="<?php echo SITE_URL;?>/contato" class="nav-link">Contato</a></li>
+			  <li class="nav-item">
+				  <?php if(isset($_SESSION['clienteLogado']) && $_SESSION['clienteLogado'] == 'S'){?>
+				  <a href="<?php echo SITE_URL;?>/area-cliente" class="nav-link">Minha Área</a>
+				  <?php }else{?>
+				   <a href="<?php echo SITE_URL;?>/login" class="nav-link">Login</a>
+				  <?php }?>
+				  </li>
 	          <li class="nav-item cta cta-colored"><a data-toggle="modal" data-target="#cartModal" class="nav-link"><span class="icon-shopping_cart"></span>[<?php if(isset($_SESSION['shopping_cart']) && !empty($_SESSION['shopping_cart'])){ echo count($_SESSION['shopping_cart']);}else{ echo "0";}?>]</a></li>
 
 	        </ul>
@@ -107,7 +114,7 @@
 		<?php if(!empty($_SESSION['shopping_cart'])){
 			if(count($_SESSION['shopping_cart']) > 0){
 			?>
-        <button type="button" class="btn btn-success">Carrinho</button>
+        <a href="carrinho" class="btn btn-success">Carrinho</a>
 		<?php } }?>
       </div>
     </div>

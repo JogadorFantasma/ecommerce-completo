@@ -86,6 +86,52 @@ $clientes->add();
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                <label class="mr-sm-2" for="">CEP</label>
+                                                    <input type="text" class="form-control" name="cep">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                               <label class="mr-sm-2" for="">Endereço</label>
+                                                    <input type="text" class="form-control" name="endereco">
+                                            </div>
+                                            <div class="col-md-1">
+                                                <div class="form-group">
+                                                <label class="mr-sm-2" for="">Número</label>
+                                                    <input type="text" class="form-control" name="numero">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                <label class="mr-sm-2" for="">Estado</label>
+                                                    <?php echo $estados->selectEstados('id_estado', '', '', '', 'S');?>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                               <label class="mr-sm-2" for="">Cidade</label>
+                                                    <div id="janela_Cidades">
+                                                    <select name="" id="" class="form-control">
+                                                    <option value="">Primeiro - Selecione um Estado</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                <label class="mr-sm-2" for="">Bairro</label>
+                                                    <input type="text" class="form-control" name="bairro">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                <label class="mr-sm-2" for="">Complemento</label>
+                                                    <input type="text" class="form-control" name="complemento">
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="form-actions">
                                         <div class="text-right">
@@ -112,5 +158,6 @@ $clientes->add();
     <script src="assets/extra-libs/sparkline/sparkline.js"></script>
     <script src="dist/js/sidebarmenu.js"></script>
     <script src="dist/js/custom.min.js"></script>
+    <script src="dist/js/script_loads.js"></script>
 </body>
 </html>

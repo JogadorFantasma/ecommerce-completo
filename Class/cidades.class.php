@@ -42,7 +42,7 @@ if(isset($CidadesInstanciada)) {
 			return self::$Cidades;    
 		}
 		
-		function rsDados($uf, $id_estado='') {
+		function rsDados($uf, $id_estado='', $id_cidade='') {
 			
 			$nCampos = 0;
 			$sql='';
@@ -53,6 +53,11 @@ if(isset($CidadesInstanciada)) {
 				$campo[$nCampos] = $uf;
 			}
 			
+			if($id_cidade <> '') {
+				$sql .= " and id = ?"; 
+				$nCampos++;
+				$campo[$nCampos] = $id_cidade;
+			}
 			if($id_estado <> '') {
 				$sql .= " and id_estado = ?"; 
 				$nCampos++;

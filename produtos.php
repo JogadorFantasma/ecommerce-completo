@@ -82,6 +82,7 @@ $puxaProdutos = $produtos->rsDados();
 									<form method="post" action="?action=add&id=<?php echo $produto->id;?>" id="add_cart_<?php echo $produto->id;?>">
 									<input type="hidden" name="nome_produto" value="<?php echo $produto->nome;?>">
 									<input type="hidden" name="valor_produto" value="<?php echo $produto->preco_por;?>">
+                  <input type="hidden" name="imagem_produto" value="<?php echo $produto->imagem;?>">
 									<input type="hidden" name="quantidade_produto" value="1">
 									<input type="hidden" name="addCarrinho" value="S">
 									<a href="javascript:;" onclick="document.getElementById('add_cart_<?php echo $produto->id;?>').submit();" class="buy-now d-flex justify-content-center align-items-center mx-1">

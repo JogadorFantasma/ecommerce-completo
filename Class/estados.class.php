@@ -55,10 +55,10 @@ if(isset($EstadosInstanciada)) {
 			}
 		}
 		
-		function selectEstados($nomeCampo='id_estado', $style="padding:5px;", $selecionado='', $campoLabel='uf', $chamaCidades='', $class='form-control', $disabled='') {
+		function selectEstados($nomeCampo='id_estado', $style="padding:5px;", $selecionado='', $campoLabel='uf', $chamaCidades='', $class='form-control') {
 			$estados = $this->rsDados();
 			?>
-			<select name="<?=$nomeCampo;?>" id="<?=$nomeCampo;?>" class="<?php echo $class;?>" style=" <?=$style;?>" <?php if($chamaCidades == 'S') { ?>onChange="AtualizaJanela('cidades.php?id_estado='+this.value, 'Cidades');"<?php } ?> <?php if($disabled == 'S') { echo "disabled"; } ?> >
+			<select name="<?php echo $nomeCampo;?>" id="<?php echo $nomeCampo;?>" class="<?php echo $class;?>" style=" <?php echo $style;?>" <?php if($chamaCidades == 'S') { ?>onChange="AtualizaJanela('cidades.php?id_estado='+this.value, 'Cidades');"<?php } ?>>
 				<option value=""></option>
 					<?php 
 					foreach($estados as $estado) {

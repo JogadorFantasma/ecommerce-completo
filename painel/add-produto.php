@@ -125,6 +125,32 @@ $puxaCategorias = $categorias->rsDados();
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                <label class="mr-sm-2" for="">Peso</label>
+                                                    <input type="text" class="form-control" name="peso">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                <label class="mr-sm-2" for="">Altura</label>
+                                                    <input type="text" class="form-control" name="altura">
+                                                </div>
+                                            </div>
+                                             <div class="col-md-3">
+                                                <div class="form-group">
+                                                <label class="mr-sm-2" for="">Largura</label>
+                                                    <input type="text" name="largura" class="form-control" >
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                <label class="mr-sm-2" for="">Comprimento</label>
+                                                    <input type="text" name="comprimento" class="form-control" >
+                                                </div>
+                                            </div>
+                                        </div>
                                       <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">

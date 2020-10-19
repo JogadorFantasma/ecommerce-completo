@@ -73,6 +73,7 @@ if(empty($ConfigSistemaInstanciada)) {
 				$this->telefone2 = $rsDados[0]->telefone2;
 				$this->email1 = $rsDados[0]->email1;
 				$this->email2 = $rsDados[0]->email2;
+				$this->cep_loja = $rsDados[0]->cep_loja;
 				
 			} catch(PDOException $erro){   
 				echo $erro->getLine(); 
@@ -189,13 +190,14 @@ if(empty($ConfigSistemaInstanciada)) {
 				$telefone2 = filter_input(INPUT_POST, 'telefone2', FILTER_SANITIZE_STRING);
 				$email1 = filter_input(INPUT_POST, 'email1', FILTER_SANITIZE_STRING);
 				$email2 = filter_input(INPUT_POST, 'email2', FILTER_SANITIZE_STRING);
+				$cep_loja = filter_input(INPUT_POST, 'cep_loja', FILTER_SANITIZE_STRING);
 				try{   
 					if(file_exists('Connection/conexao.php')) {
 							$pastaArquivos = 'img';
 						} else {
 							$pastaArquivos = '../img';
 						}
-					$sql = "UPDATE tbl_config SET id_campanha=?, facebook=?, twitter=?, instagram=?, youtube=?, favicon=?, nome_empresa=?, endereco=?, telefone1=?, telefone2=?, email1=?, email2=? WHERE id=? ";   
+					$sql = "UPDATE tbl_config SET id_campanha=?, facebook=?, twitter=?, instagram=?, youtube=?, favicon=?, nome_empresa=?, endereco=?, telefone1=?, telefone2=?, email1=?, email2=?, cep_loja=? WHERE id=? ";   
 					$stm = $this->pdo->prepare($sql);  
 					$stm->bindValue(1, $id_campanha);
 					$stm->bindValue(2, $facebook);
@@ -209,7 +211,8 @@ if(empty($ConfigSistemaInstanciada)) {
 					$stm->bindValue(10, $telefone2);
 					$stm->bindValue(11, $email1);
 					$stm->bindValue(12, $email2);
-					$stm->bindValue(13, 1);
+					$stm->bindValue(13, $cep_loja);
+					$stm->bindValue(14, 1);
 					$stm->execute();  
 					
 					echo "	<script>

@@ -133,6 +133,32 @@ $puxaCategorias = $categorias->rsDados();
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                <label class="mr-sm-2" for="">Peso</label>
+                                                    <input type="text" class="form-control" name="peso" value="<?php if(isset($editaProduto->peso) && !empty($editaProduto->peso)){ echo $editaProduto->peso;}?>">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                <label class="mr-sm-2" for="">Altura</label>
+                                                    <input type="text" class="form-control" name="altura" value="<?php if(isset($editaProduto->altura) && !empty($editaProduto->altura)){ echo $editaProduto->altura;}?>">
+                                                </div>
+                                            </div>
+                                             <div class="col-md-3">
+                                                <div class="form-group">
+                                                <label class="mr-sm-2" for="">Largura</label>
+                                                    <input type="text" name="largura" class="form-control" value="<?php if(isset($editaProduto->largura) && !empty($editaProduto->largura)){ echo $editaProduto->largura;}?>" >
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                <label class="mr-sm-2" for="">Comprimento</label>
+                                                    <input type="text" name="comprimento" class="form-control" value="<?php if(isset($editaProduto->comprimento) && !empty($editaProduto->comprimento)){ echo $editaProduto->comprimento;}?>" >
+                                                </div>
+                                            </div>
+                                        </div>
                                       <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">

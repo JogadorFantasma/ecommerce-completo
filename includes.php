@@ -20,7 +20,13 @@ $banners = Banners::getInstance(Conexao::getInstance());
 include "Class/parceiros.class.php";
 $parceiros = Parceiros::getInstance(Conexao::getInstance());
 
+include "Class/cidades.class.php";
+$cidades = Cidades::getInstance(Conexao::getInstance());
+
 define('SITE_URL', 'https://'.$_SERVER['HTTP_HOST'].'/projects/ecommerce');
+
+/// CONFIG DO ECOMMERCE
+$temFrete = 'S';
 
 ///Faz parte do adicionar carrinho
 $produtos_id = array();
@@ -40,7 +46,8 @@ if(filter_input(INPUT_POST, 'addCarrinho')){
             'id' => filter_input(INPUT_GET, 'id'),
             'nome_produto' => filter_input(INPUT_POST, 'nome_produto'),
             'valor_produto' => filter_input(INPUT_POST, 'valor_produto'),
-            'quantidade_produto' => filter_input(INPUT_POST, 'quantidade_produto')
+            'quantidade_produto' => filter_input(INPUT_POST, 'quantidade_produto'),
+            'imagem_produto' => filter_input(INPUT_POST, 'imagem_produto')
             );
         }else{
             //Bate se o produto foi ja inserido no carrinho
@@ -58,7 +65,8 @@ if(filter_input(INPUT_POST, 'addCarrinho')){
             'id' => filter_input(INPUT_GET, 'id'),
             'nome_produto' => filter_input(INPUT_POST, 'nome_produto'),
             'valor_produto' => filter_input(INPUT_POST, 'valor_produto'),
-            'quantidade_produto' => filter_input(INPUT_POST, 'quantidade_produto')
+            'quantidade_produto' => filter_input(INPUT_POST, 'quantidade_produto'),
+            'imagem_produto' => filter_input(INPUT_POST, 'imagem_produto')
         );
     }
     //pre_r($_SESSION);
@@ -77,4 +85,5 @@ if(filter_input(INPUT_GET, 'action') == 'delete'){
         print_r($array);
         echo "</pre>";
     }
+    //pre_r($_SESSION);
 ?>

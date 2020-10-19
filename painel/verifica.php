@@ -10,6 +10,9 @@ $acessosSite = ConfigSistema::getInstance(Conexao::getInstance());
 include "../Class/produtos.class.php";
 $produtos = Produtos::getInstance(Conexao::getInstance());
 
+include "../Class/estados.class.php";
+$estados = Estados::getInstance(Conexao::getInstance());
+
 include "../Class/clientes.class.php";
 $clientes = Clientes::getInstance(Conexao::getInstance());
 
