@@ -133,6 +133,22 @@ $editaConfig = $infoSistema->rsDados(1);
                                             <?php }?>
                                             </div>
                                         </div>
+                                        <hr>
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <h3>Chaves Cielo</h3>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-md-6 col-sm-12">
+                                            <label  class="col-form-label">Merchant Id</label>
+                                            <input class="form-control" type="text" name="merchant_id_cielo" value="<?php if(isset($editaConfig->merchant_id_cielo) && !empty($editaConfig->merchant_id_cielo)){ echo $editaConfig->merchant_id_cielo;}?>" />
+                                            </div> 
+                                            <div class="col-md-6 col-sm-12">
+                                            <label  class="col-form-label">Merchant Key</label>
+                                            <input class="form-control" type="text" name="merchant_key_cielo" value="<?php if(isset($editaConfig->merchant_key_cielo) && !empty($editaConfig->merchant_key_cielo)){ echo $editaConfig->merchant_key_cielo;}?>" />
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="form-actions">
                                         <div class="text-right">

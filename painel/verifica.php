@@ -7,6 +7,9 @@ include "../Class/config.class.php";
 $infoSistema = ConfigSistema::getInstance(Conexao::getInstance())->rsDados();
 $acessosSite = ConfigSistema::getInstance(Conexao::getInstance());
 
+include "../Class/metasTags.class.php";
+$metastags = MetasTags::getInstance(Conexao::getInstance());
+
 include "../Class/produtos.class.php";
 $produtos = Produtos::getInstance(Conexao::getInstance());
 

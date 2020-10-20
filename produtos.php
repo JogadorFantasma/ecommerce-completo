@@ -9,9 +9,9 @@ $puxaProdutos = $produtos->rsDados();
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <title><?php if(isset($infoSistema->meta_title_produtos) && !empty($infoSistema->meta_title_produtos)){echo $infoSistema->meta_title_produtos;}?></title>
-    <meta name="description" content="<?php if(isset($infoSistema->meta_description_produtos) && !empty($infoSistema->meta_description_produtos)){echo $infoSistema->meta_description_produtos;}?>"/>
-		<meta name="keywords" content="<?php if(isset($infoSistema->meta_keywords_produtos) && !empty($infoSistema->meta_keywords_produtos)){echo $infoSistema->meta_keywords_produtos;}?>">
+    <title><?php if(isset($metastags->meta_title_produtos) && !empty($metastags->meta_title_produtos)){echo $metastags->meta_title_produtos;}?></title>
+    <meta name="description" content="<?php if(isset($metastags->meta_description_produtos) && !empty($metastags->meta_description_produtos)){echo $metastags->meta_description_produtos;}?>"/>
+		<meta name="keywords" content="<?php if(isset($metastags->meta_keywords_produtos) && !empty($metastags->meta_keywords_produtos)){echo $metastags->meta_keywords_produtos;}?>">
     <?php if(isset($infoSistema->favicon) && !empty($infoSistema->favicon)){?>
 		<link rel="shortcut icon" href="<?php echo SITE_URL;?>/img/<?php echo $infoSistema->favicon;?>" >
 		<link rel="icon" href="<?php echo SITE_URL;?>/img/<?php echo $infoSistema->favicon;?>" >

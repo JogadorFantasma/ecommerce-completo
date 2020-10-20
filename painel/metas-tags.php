@@ -1,8 +1,7 @@
 <?php
 include "verifica.php";
-$infoSistema->editarMetaTag();
-$editaConfig = $infoSistema->rsDados(1);
-$puxaCampanhas = $infoSistema->rsCampanha();
+$metastags->editarMetaTag();
+$editaConfig = $metastags->rsDados(1);
 ?>
 <!DOCTYPE html>
 <html dir="ltr" lang="pt-br">

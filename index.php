@@ -5,13 +5,26 @@ $puxaProdutosDestaques = $produtos->rsDados('', 'rand()', '', '', 'S', 'S');
 $puxaTestemunhos = $testemunhos->rsDados('', 'rand()');
 $puxaBanners = $banners->rsDados();
 $puxaParceiros = $parceiros->rsDados();
+
+//$apissandboxescielo->crediCardMinimo();
+//$apissandboxescielo->credCardAutenticado();
+$pegandos = $apissandboxescielo->credCardCompleto();
+
+pre_r($pegandos['Payment']);
+$pegado = $pegandos['Payment'];
+echo "PaymentId: ".$pegado['PaymentId'];
+/* 
+foreach($pegandos['Payment'] as $key => $pegou){
+echo "Id Pagamento: ".$pegou['PaymentId'];
+} */
+//$apissandboxescielo->capturaTransacaoPorId($pegado['PaymentId']);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <title><?php if(isset($infoSistema->meta_title_principal) && !empty($infoSistema->meta_title_principal)){echo $infoSistema->meta_title_principal;}?></title>
-    <meta name="description" content="<?php if(isset($infoSistema->meta_description_principal) && !empty($infoSistema->meta_description_principal)){echo $infoSistema->meta_description_principal;}?>"/>
-		<meta name="keywords" content="<?php if(isset($infoSistema->meta_keywords_principal) && !empty($infoSistema->meta_keywords_principal)){echo $infoSistema->meta_keywords_principal;}?>">
+    <title><?php if(isset($metastags->meta_title_principal) && !empty($metastags->meta_title_principal)){echo $metastags->meta_title_principal;}?></title>
+    <meta name="description" content="<?php if(isset($metastags->meta_description_principal) && !empty($metastags->meta_description_principal)){echo $metastags->meta_description_principal;}?>"/>
+		<meta name="keywords" content="<?php if(isset($metastags->meta_keywords_principal) && !empty($metastags->meta_keywords_principal)){echo $metastags->meta_keywords_principal;}?>">
     <?php if(isset($infoSistema->favicon) && !empty($infoSistema->favicon)){?>
 		<link rel="shortcut icon" href="img/<?php echo $infoSistema->favicon;?>" >
 		<link rel="icon" href="img/<?php echo $infoSistema->favicon;?>" >

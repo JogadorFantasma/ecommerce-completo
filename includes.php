@@ -2,6 +2,9 @@
 include "Class/config.class.php";
 $infoSistema = ConfigSistema::getInstance(Conexao::getInstance())->rsDados();
 
+include "Class/metasTags.class.php";
+$metastags = MetasTags::getInstance(Conexao::getInstance())->rsDados();
+
 include "Class/produtos.class.php";
 $produtos = Produtos::getInstance(Conexao::getInstance());
 
@@ -22,6 +25,10 @@ $parceiros = Parceiros::getInstance(Conexao::getInstance());
 
 include "Class/cidades.class.php";
 $cidades = Cidades::getInstance(Conexao::getInstance());
+
+//Classes de pagamentos
+include "cielo/api-cielo-sandbox.class.php";
+$apissandboxescielo = ApisSandboxesCielo::getInstance(Conexao::getInstance());
 
 define('SITE_URL', 'https://'.$_SERVER['HTTP_HOST'].'/projects/ecommerce');
 
