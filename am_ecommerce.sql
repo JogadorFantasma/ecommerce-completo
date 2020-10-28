@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 16/10/2020 às 20:37
+-- Tempo de geração: 28/10/2020 às 21:50
 -- Versão do servidor: 10.4.13-MariaDB
 -- Versão do PHP: 7.4.7
 
@@ -13108,8 +13108,22 @@ CREATE TABLE `tbl_cliente` (
   `email` varchar(250) DEFAULT NULL,
   `telefone` varchar(40) DEFAULT NULL,
   `sexo` varchar(2) DEFAULT NULL,
-  `senha` varchar(80) DEFAULT NULL
+  `senha` varchar(80) DEFAULT NULL,
+  `cep` varchar(20) DEFAULT NULL,
+  `endereco` varchar(250) DEFAULT NULL,
+  `id_estado` int(11) DEFAULT NULL,
+  `id_cidade` int(11) DEFAULT NULL,
+  `bairro` varchar(250) DEFAULT NULL,
+  `numero` varchar(20) DEFAULT NULL,
+  `complemento` varchar(250) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Despejando dados para a tabela `tbl_cliente`
+--
+
+INSERT INTO `tbl_cliente` (`id`, `nome`, `email`, `telefone`, `sexo`, `senha`, `cep`, `endereco`, `id_estado`, `id_cidade`, `bairro`, `numero`, `complemento`) VALUES
+(1, 'ADRIANO STEPHAN MONTEIRO BATISTA', 'asmbmonteiro@gmail.com', '61984113239', 'M', '12345', '72220229', 'QNN 22 Conjunto I', 7, 1727, 'Guariroba', '50', 's/c');
 
 -- --------------------------------------------------------
 
@@ -13120,33 +13134,11 @@ CREATE TABLE `tbl_cliente` (
 CREATE TABLE `tbl_config` (
   `id` int(11) NOT NULL,
   `id_campanha` int(11) DEFAULT NULL,
-  `meta_title_principal` text DEFAULT NULL,
-  `meta_keywords_principal` text DEFAULT NULL,
-  `meta_description_principal` text DEFAULT NULL,
-  `meta_title_convenio` text DEFAULT NULL,
-  `meta_keywords_convenio` text DEFAULT NULL,
-  `meta_description_convenio` text DEFAULT NULL,
-  `meta_title_blog` text DEFAULT NULL,
-  `meta_keywords_blog` text DEFAULT NULL,
-  `meta_description_blog` text DEFAULT NULL,
-  `meta_title_contato` text DEFAULT NULL,
-  `meta_keywords_contato` text DEFAULT NULL,
-  `meta_description_contato` text DEFAULT NULL,
   `favicon` varchar(250) DEFAULT NULL,
   `facebook` varchar(250) DEFAULT NULL,
   `twitter` varchar(250) DEFAULT NULL,
   `instagram` varchar(250) DEFAULT NULL,
   `youtube` varchar(250) DEFAULT NULL,
-  `meta_title_parceria` text DEFAULT NULL,
-  `meta_keywords_parceria` text DEFAULT NULL,
-  `meta_description_parceria` text DEFAULT NULL,
-  `meta_title_servico` text DEFAULT NULL,
-  `meta_keywords_servico` text DEFAULT NULL,
-  `meta_description_servico` text DEFAULT NULL,
-  `meta_title_sobre` text DEFAULT NULL,
-  `meta_keywords_sobre` text DEFAULT NULL,
-  `meta_description_sobre` text DEFAULT NULL,
-  `meta_title_criacao` text DEFAULT NULL,
   `linkedln` varchar(250) DEFAULT NULL,
   `nome_empresa` varchar(250) DEFAULT NULL,
   `endereco` varchar(250) DEFAULT NULL,
@@ -13154,17 +13146,17 @@ CREATE TABLE `tbl_config` (
   `telefone2` varchar(40) DEFAULT NULL,
   `email1` varchar(250) DEFAULT NULL,
   `email2` varchar(250) DEFAULT NULL,
-  `meta_title_produtos` text DEFAULT NULL,
-  `meta_keywords_produtos` text DEFAULT NULL,
-  `meta_description_produtos` text DEFAULT NULL
+  `cep_loja` varchar(20) DEFAULT NULL,
+  `merchant_id_cielo` varchar(250) DEFAULT NULL,
+  `merchant_key_cielo` varchar(250) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Despejando dados para a tabela `tbl_config`
 --
 
-INSERT INTO `tbl_config` (`id`, `id_campanha`, `meta_title_principal`, `meta_keywords_principal`, `meta_description_principal`, `meta_title_convenio`, `meta_keywords_convenio`, `meta_description_convenio`, `meta_title_blog`, `meta_keywords_blog`, `meta_description_blog`, `meta_title_contato`, `meta_keywords_contato`, `meta_description_contato`, `favicon`, `facebook`, `twitter`, `instagram`, `youtube`, `meta_title_parceria`, `meta_keywords_parceria`, `meta_description_parceria`, `meta_title_servico`, `meta_keywords_servico`, `meta_description_servico`, `meta_title_sobre`, `meta_keywords_sobre`, `meta_description_sobre`, `meta_title_criacao`, `linkedln`, `nome_empresa`, `endereco`, `telefone1`, `telefone2`, `email1`, `email2`, `meta_title_produtos`, `meta_keywords_produtos`, `meta_description_produtos`) VALUES
-(1, NULL, 'Hoogli | Marketing Digital | Brasília -DF | (61) 3436-1999', 'agência de marketing digital df, agência de marketing digital em brasília, agência de publicidade brasília, marketing digital df, marketing digital para brasilia, marketing digital em brasília ', 'A Hoogli é uma Agência de Marketing Digital Google em Brasília e traz um rio de soluções para o seu negócio. Fale a mesma língua do seu cliente, seja Hoogli! ', NULL, NULL, NULL, 'Hoogli | Agência de Marketing Digital em Brasília | (61) 3436-1999', 'agência de marketing digital df, agência de marketing digital em brasília, agência de publicidade brasília, marketing digital df, marketing digital para brasilia, marketing digital em brasília ', 'A Hoogli é uma Agência de Marketing Digital em Brasília que te ajuda com: SEO, redes sociais, Google ADS, Google Street View, registro de marca, hospedagem... ', 'Hoogli | 10 anos de marketing | Brasília | (61) 3436-1999', 'agência de marketing digital df, agência de marketing digital em brasília, agência de publicidade brasília, marketing digital df, marketing digital para brasilia, marketing digital em brasília ', 'Hoogli | Marketing Digital em Brasília | Certificada pelo Google | Com 10 anos de mercado e centenas de resultados em vendas e novos negócios. Vamos conversar?', '1602794971.5459-favicon-N.svg', 'https://www.facebook.com/hooglimkt', 'https://twitter.com/hooglimkt', 'https://www.instagram.com/hooglimkt/', 'https://www.youtube.com/channel/UC7Qj7OsIcemro0kxA-kcv4g', 'Hoogli | Certificada | Partners Google | Brasília | (61) 3436-1999', 'agências google partners, agência de marketing digital em brasília, agência de publicidade brasília, partners google, agência de marketing digital df, marketing digital df     ', 'A Hoogli é uma Agência de Marketing Digital Certificada pelo Google em Brasília. Conquiste clientes e aumente suas vendas. Use o Google a seu favor, seja Hoogli', NULL, NULL, NULL, 'Agência de Marketing Digital em Brasília | Hoogli | (61) 3436-1999', 'marketing digital df, agência de publicidade brasília, marketing digital para brasilia, marketing digital em brasília, agência de marketing digital em brasília, marketing digital brasilia df', 'A Hoogli é a Agência de Marketing que sabe Ouvir e Atender as Necessidades da sua Marca e que vai te ajudar a alcançar o Primeiro Lugar na mente do Consumidor.', 'Hoogli | Criação de sites otimizados | Brasília | DF | (61) 3436-1999', 'https://www.linkedin.com/company/hooglimkt/', 'VegeFoods', 'Ed. Vista Medical, R. das Figueiras, Lt 07 Águas Claras, Brasília - DF 71906-750', '(61) 3436-1999', '', 'contato@hoogli.com.br', '', NULL, NULL, NULL);
+INSERT INTO `tbl_config` (`id`, `id_campanha`, `favicon`, `facebook`, `twitter`, `instagram`, `youtube`, `linkedln`, `nome_empresa`, `endereco`, `telefone1`, `telefone2`, `email1`, `email2`, `cep_loja`, `merchant_id_cielo`, `merchant_key_cielo`) VALUES
+(1, NULL, '1602794971.5459-favicon-N.svg', 'https://www.facebook.com/hooglimkt', 'https://twitter.com/hooglimkt', 'https://www.instagram.com/hooglimkt/', 'https://www.youtube.com/channel/UC7Qj7OsIcemro0kxA-kcv4g', 'https://www.linkedin.com/company/hooglimkt/', 'VegeFoods', 'Ed. Vista Medical, R. das Figueiras, Lt 07 Águas Claras, Brasília - DF 71906-750', '(61) 3436-1999', '', 'contato@hoogli.com.br', '', '', 'cb41cfa2-04ea-4a98-baba-965ea6596149', 'ZWEOPLOHJOKTBMSUQKWCQGXHZUYJQHLGGLFAFJOA');
 
 -- --------------------------------------------------------
 
@@ -13352,6 +13344,48 @@ CREATE TABLE `tbl_historicos` (
 -- --------------------------------------------------------
 
 --
+-- Estrutura para tabela `tbl_metas_tags`
+--
+
+CREATE TABLE `tbl_metas_tags` (
+  `id` int(11) NOT NULL,
+  `meta_title_principal` text DEFAULT NULL,
+  `meta_keywords_principal` text DEFAULT NULL,
+  `meta_description_principal` text DEFAULT NULL,
+  `meta_title_convenio` text DEFAULT NULL,
+  `meta_keywords_convenio` text DEFAULT NULL,
+  `meta_description_convenio` text DEFAULT NULL,
+  `meta_title_blog` text DEFAULT NULL,
+  `meta_keywords_blog` text DEFAULT NULL,
+  `meta_description_blog` text DEFAULT NULL,
+  `meta_title_contato` text DEFAULT NULL,
+  `meta_keywords_contato` text DEFAULT NULL,
+  `meta_description_contato` text DEFAULT NULL,
+  `meta_title_parceria` text DEFAULT NULL,
+  `meta_keywords_parceria` text DEFAULT NULL,
+  `meta_description_parceria` text DEFAULT NULL,
+  `meta_title_servico` text DEFAULT NULL,
+  `meta_keywords_servico` text DEFAULT NULL,
+  `meta_description_servico` text DEFAULT NULL,
+  `meta_title_sobre` text DEFAULT NULL,
+  `meta_keywords_sobre` text DEFAULT NULL,
+  `meta_description_sobre` text DEFAULT NULL,
+  `meta_title_criacao` text DEFAULT NULL,
+  `meta_title_produtos` text DEFAULT NULL,
+  `meta_keywords_produtos` text DEFAULT NULL,
+  `meta_description_produtos` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Despejando dados para a tabela `tbl_metas_tags`
+--
+
+INSERT INTO `tbl_metas_tags` (`id`, `meta_title_principal`, `meta_keywords_principal`, `meta_description_principal`, `meta_title_convenio`, `meta_keywords_convenio`, `meta_description_convenio`, `meta_title_blog`, `meta_keywords_blog`, `meta_description_blog`, `meta_title_contato`, `meta_keywords_contato`, `meta_description_contato`, `meta_title_parceria`, `meta_keywords_parceria`, `meta_description_parceria`, `meta_title_servico`, `meta_keywords_servico`, `meta_description_servico`, `meta_title_sobre`, `meta_keywords_sobre`, `meta_description_sobre`, `meta_title_criacao`, `meta_title_produtos`, `meta_keywords_produtos`, `meta_description_produtos`) VALUES
+(1, 'Hoogli | Marketing Digital | Brasília -DF | (61) 3436-1999', 'agência de marketing digital df, agência de marketing digital em brasília, agência de publicidade brasília, marketing digital df, marketing digital para brasilia, marketing digital em brasília ', 'A Hoogli é uma Agência de Marketing Digital Google em Brasília e traz um rio de soluções para o seu negócio. Fale a mesma língua do seu cliente, seja Hoogli! ', NULL, NULL, NULL, 'Hoogli | Agência de Marketing Digital em Brasília | (61) 3436-1999', 'agência de marketing digital df, agência de marketing digital em brasília, agência de publicidade brasília, marketing digital df, marketing digital para brasilia, marketing digital em brasília ', 'A Hoogli é uma Agência de Marketing Digital em Brasília que te ajuda com: SEO, redes sociais, Google ADS, Google Street View, registro de marca, hospedagem... ', 'Hoogli | 10 anos de marketing | Brasília | (61) 3436-1999', 'agência de marketing digital df, agência de marketing digital em brasília, agência de publicidade brasília, marketing digital df, marketing digital para brasilia, marketing digital em brasília ', 'Hoogli | Marketing Digital em Brasília | Certificada pelo Google | Com 10 anos de mercado e centenas de resultados em vendas e novos negócios. Vamos conversar?', 'Hoogli | Certificada | Partners Google | Brasília | (61) 3436-1999', 'agências google partners, agência de marketing digital em brasília, agência de publicidade brasília, partners google, agência de marketing digital df, marketing digital df     ', 'A Hoogli é uma Agência de Marketing Digital Certificada pelo Google em Brasília. Conquiste clientes e aumente suas vendas. Use o Google a seu favor, seja Hoogli', NULL, NULL, NULL, 'Agência de Marketing Digital em Brasília | Hoogli | (61) 3436-1999', 'marketing digital df, agência de publicidade brasília, marketing digital para brasilia, marketing digital em brasília, agência de marketing digital em brasília, marketing digital brasilia df', 'A Hoogli é a Agência de Marketing que sabe Ouvir e Atender as Necessidades da sua Marca e que vai te ajudar a alcançar o Primeiro Lugar na mente do Consumidor.', 'Hoogli | Criação de sites otimizados | Brasília | DF | (61) 3436-1999', NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura para tabela `tbl_parceiro`
 --
 
@@ -13421,24 +13455,28 @@ CREATE TABLE `tbl_produto` (
   `meta_description` text DEFAULT NULL,
   `quantidade_estoque` int(11) DEFAULT NULL,
   `avise_estoque` int(11) DEFAULT NULL,
-  `destaque` varchar(2) DEFAULT NULL
+  `destaque` varchar(2) DEFAULT NULL,
+  `peso` float DEFAULT NULL,
+  `altura` float DEFAULT NULL,
+  `largura` float DEFAULT NULL,
+  `comprimento` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Despejando dados para a tabela `tbl_produto`
 --
 
-INSERT INTO `tbl_produto` (`id`, `nome`, `descricao`, `preco_de`, `preco_por`, `ativo`, `id_categoria`, `id_subcategoria`, `url_amigavel`, `imagem`, `meta_title`, `meta_keywords`, `meta_description`, `quantidade_estoque`, `avise_estoque`, `destaque`) VALUES
-(3, 'Pimentão pacote com 4', 'Pimentão', 15, 11, 'S', 2, NULL, 'pimentao-pacote-4', '1602770387.2758-imagem-N.jpg', '', '', '', 8, 2, NULL),
-(4, 'Vagem pacote com 200gr', 'Vagem pacote com 200gr', 18, 13, 'S', 2, NULL, 'vagem-pacote-200gr', '1602770560.8597-imagem-N.jpg', '', '', '', 10, 2, 'S'),
-(5, 'Repolho Roxo unidade', 'Repolho Roxo unidade', 8, 6, 'S', 2, NULL, 'repolho-roxo-unidade', '1602770619.7397-imagem-N.jpg', '', '', '', 16, 4, NULL),
-(6, 'Tomate bandeja com 6 unidades', 'Tomate bandeja com 6 unidades', 13, 10, 'S', 2, NULL, 'tomate-bandeja-6-unidades', '1602770662.8549-imagem-N.jpg', '', '', '', 12, 2, NULL),
-(7, 'Cenoura pacote com 5 unidades', 'Cenoura pacote com 5 unidades', 9, 5.8, 'S', 2, NULL, 'cenoura-pacote-5-unidades', '1602770706.9843-imagem-N.jpg', '', '', '', 13, 2, NULL),
-(8, 'Suco detox 500ml', 'Suco detox 500ml', 8, 5.9, 'S', 3, NULL, 'suco-detox-500ml', '1602770764.8971-imagem-N.jpg', '', '', '', 19, 2, 'S'),
-(9, 'Cebola Roxa pacote com 6 unidades', 'Cebola Roxa pacote com 6 unidades', 8, 4.99, 'S', 2, NULL, 'cebola-roxa-pacote-6-unidades', '1602770802.215-imagem-N.jpg', '', '', '', 20, 2, NULL),
-(10, 'Maçã Nacional pacote com 8 unidades', 'Maçã Nacional pacote com 8 unidades', 7.99, 4.59, 'S', 1, NULL, 'maca-nacional-pacote-8-unidades', '1602770855.888-imagem-N.jpg', '', '', '', 30, 6, 'S'),
-(11, 'Alho pacote com 150gr', 'Alho pacote com 150gr', 9, 6.99, 'S', 2, NULL, 'alho-pacote-150gr', '1602770905.3861-imagem-N.jpg', '', '', '', 30, 8, 'S'),
-(12, 'Pimenta Malagueta pacote com 300gr', 'Pimenta Malagueta pacote com 300gr', 9, 6.99, 'S', 4, NULL, 'pimenta-malagueta-pacote-300gr', '1602770957.3402-imagem-N.jpg', '', '', '', 50, 10, NULL);
+INSERT INTO `tbl_produto` (`id`, `nome`, `descricao`, `preco_de`, `preco_por`, `ativo`, `id_categoria`, `id_subcategoria`, `url_amigavel`, `imagem`, `meta_title`, `meta_keywords`, `meta_description`, `quantidade_estoque`, `avise_estoque`, `destaque`, `peso`, `altura`, `largura`, `comprimento`) VALUES
+(3, 'Pimentão pacote com 4', 'Pimentão', 15, 11, 'S', 2, NULL, 'pimentao-pacote-4', '1602770387.2758-imagem-N.jpg', '', '', '', 8, 2, 'S', 2, 20, 30, 15),
+(4, 'Vagem pacote com 200gr', 'Vagem pacote com 200gr', 18, 13, 'S', 2, NULL, 'vagem-pacote-200gr', '1602770560.8597-imagem-N.jpg', '', '', '', 10, 2, 'S', 2, 20, 30, 15),
+(5, 'Repolho Roxo unidade', 'Repolho Roxo unidade', 8, 6, 'S', 2, NULL, 'repolho-roxo-unidade', '1602770619.7397-imagem-N.jpg', '', '', '', 16, 4, 'S', 2, 20, 30, 15),
+(6, 'Tomate bandeja com 6 unidades', 'Tomate bandeja com 6 unidades', 13, 10, 'S', 2, NULL, 'tomate-bandeja-6-unidades', '1602770662.8549-imagem-N.jpg', '', '', '', 12, 2, 'S', 2, 20, 30, 15),
+(7, 'Cenoura pacote com 5 unidades', 'Cenoura pacote com 5 unidades', 9, 5.8, 'S', 2, NULL, 'cenoura-pacote-5-unidades', '1602770706.9843-imagem-N.jpg', '', '', '', 13, 2, 'S', 2, 20, 30, 15),
+(8, 'Suco detox 500ml', 'Suco detox 500ml', 8, 5.9, 'S', 3, NULL, 'suco-detox-500ml', '1602770764.8971-imagem-N.jpg', '', '', '', 19, 2, 'S', 2, 20, 30, 15),
+(9, 'Cebola Roxa pacote com 6 unidades', 'Cebola Roxa pacote com 6 unidades', 8, 4.99, 'S', 2, NULL, 'cebola-roxa-pacote-6-unidades', '1602770802.215-imagem-N.jpg', '', '', '', 20, 2, 'S', 2, 20, 30, 15),
+(10, 'Maçã Nacional pacote com 8 unidades', 'Maçã Nacional pacote com 8 unidades', 7.99, 4.59, 'S', 1, NULL, 'maca-nacional-pacote-8-unidades', '1602770855.888-imagem-N.jpg', '', '', '', 30, 6, 'S', 2, 20, 30, 15),
+(11, 'Alho pacote com 150gr', 'Alho pacote com 150gr', 9, 6.99, 'S', 2, NULL, 'alho-pacote-150gr', '1602770905.3861-imagem-N.jpg', '', '', '', 30, 8, 'S', 2, 20, 30, 15),
+(12, 'Pimenta Malagueta pacote com 300gr', 'Pimenta Malagueta pacote com 300gr', 9, 6.99, 'S', 4, NULL, 'pimenta-malagueta-pacote-300gr', '1602770957.3402-imagem-N.jpg', '', '', '', 50, 10, 'S', 2, 20, 30, 15);
 
 -- --------------------------------------------------------
 
@@ -13589,7 +13627,7 @@ CREATE TABLE `tbl_usuarios` (
 --
 
 INSERT INTO `tbl_usuarios` (`id`, `nome`, `email`, `telefone`, `endereco`, `cpf`, `login`, `senha`, `foto`, `id_cargo`, `sexo`, `perm_cad_usuario`, `perm_relatorio`, `perm_add_usuario`, `perm_edit_usuario`, `perm_del_usuario`, `perm_cad_contato`, `perm_edit_contato`, `perm_del_contato`, `perm_edit_contato_nf`, `perm_pag_principal_rm`, `perm_pag_principal_uc`, `admin_geral`, `data_frase`, `id_frase`, `frase_lida`) VALUES
-(1, 'Administrador', 'adm@adm.com', NULL, NULL, NULL, 'admin', '1234', NULL, NULL, 'M', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', NULL, '2020-10-16', 19, 'N'),
+(1, 'Administrador', 'adm@adm.com', NULL, NULL, NULL, 'admin', '1234', NULL, NULL, 'M', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', NULL, '2020-10-20', 5, 'N'),
 (2, 'teste', 'teste@teste.com.br', '', '', '', NULL, '123', NULL, 1, 'M', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', NULL, NULL, NULL, NULL);
 
 --
@@ -13690,6 +13728,12 @@ ALTER TABLE `tbl_frases`
 -- Índices de tabela `tbl_historicos`
 --
 ALTER TABLE `tbl_historicos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices de tabela `tbl_metas_tags`
+--
+ALTER TABLE `tbl_metas_tags`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -13802,7 +13846,7 @@ ALTER TABLE `tbl_cat_servicos`
 -- AUTO_INCREMENT de tabela `tbl_cliente`
 --
 ALTER TABLE `tbl_cliente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `tbl_config`
@@ -13851,6 +13895,12 @@ ALTER TABLE `tbl_frases`
 --
 ALTER TABLE `tbl_historicos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `tbl_metas_tags`
+--
+ALTER TABLE `tbl_metas_tags`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `tbl_parceiro`
